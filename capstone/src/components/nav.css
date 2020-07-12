@@ -1,0 +1,24 @@
+header {
+    height: 40px;
+    background-color: darkblue;
+}
+
+nav {
+    display: flex;
+    
+}
+
+.Auth-btn {
+    display: flex;
+    right:0;
+    position: absolute;
+}
+li {
+    list-style: none;
+    padding: 0 5px;
+}
+
+a {
+    color: hotpink;
+    text-decoration-line: none;
+}
