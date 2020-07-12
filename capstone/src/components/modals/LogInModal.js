@@ -56,14 +56,17 @@ class SignUpModal extends Component {
         });
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
         event.preventDefault();
-        UserModel.login({
+        await UserModel.login({
             email: this.state.email,
             password: this.state.password
         })
         this.closeModal();
+        await this.props.fetch();
+        console.log(this.props.fetch())
     }
+
     
     
     render(){

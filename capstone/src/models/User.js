@@ -24,7 +24,7 @@ class UserModel {
         return account;
     }
     static logout = () => {
-        let request = axios.delete('http://localhost:3001/api/v1/auth/logout')
+        let request = axios.delete('http://localhost:3001/api/v1/auth/logout', {withCredentials: true})
     }
 }
 
