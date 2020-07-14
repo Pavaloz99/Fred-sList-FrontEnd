@@ -6,6 +6,7 @@ import Profile from './Profile';
 import Listings from '../components/Listings'
 import {Route, Switch} from 'react-router-dom';
 import PostModel from '../models/Posts';
+import PostShow from '../containers/PostShow';
 
 class Splash extends Component {
     _isMounted = false;
@@ -83,6 +84,7 @@ render() {
                 <Route exact path="/" component={Home} />
                 <Route path="/listings" component={Listings} />
                 <Route path="/profile/:id" component={Profile} />
+                <Route path="/post/:id" component={PostShow} />
             </Switch>
             </>
         );

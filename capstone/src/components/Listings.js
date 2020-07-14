@@ -23,11 +23,25 @@ class Listings extends Component {
             console.log(err);
         });
     }
+    arrayBufferToBase64(buffer) {
+        let binary = '';
+        let bytes = [].slice.call(new Uint8Array(buffer));
+            bytes.forEach((b) => binary += String.fromCharCode(b));
+                return window.btoa(binary);
+    };
+    
+    
 
-    generateLists(posts) {
-        return posts.map(post => {
-            return <Listing name={post.title} condition={post.Condition} price={post.Asking} />
-        })
+    generateLists (posts) {
+         return posts.map(post => {
+            return <Listing name={post.title} id={post._id} condition={post.condition} price={post.asking} 
+                    user={post.User ? post.User.username : "secret"} 
+                    rating={post.User.Rating.length ? 
+                        (post.User.Rating.reduce((accumulator, currentValue) => 
+                        accumulator + currentValue)/post.User.Rating.length)*100 + "%" :
+                         "0%"} 
+                         img={this.arrayBufferToBase64(post.image.data)}/>
+            })
     }
 render(){
 return (

@@ -3,6 +3,7 @@ import './nav.css'
 import SignUpModal from '../components/modals/SignUpModal';
 import LogInModal from './modals/LogInModal';
 import {NavLink} from 'react-router-dom';
+import CreatePostModal from '../components/modals/CreatePostModal'
 
 function Nav(props){
  
@@ -10,8 +11,9 @@ function Nav(props){
     <>
     <header>
         <nav>
+        <NavLink to="/listings">Listings</NavLink>
         <div class="Auth-btn">
-        {!props.isLoggedIn ? <> <LogInModal fetch={props.fetch}/> <SignUpModal /> </> : <><NavLink to="/">Home</NavLink><NavLink to={'/profile/' + props.user._id}>Account</NavLink> <button onClick={props.logout}>Logout</button></> }      
+        {!props.isLoggedIn ? <> <LogInModal fetch={props.fetch}/> <SignUpModal /> </> : <><NavLink to="/">Home</NavLink><CreatePostModal /><NavLink to={'/profile/' + props.user._id}>Account</NavLink> <button onClick={props.logout}>Logout</button></> }      
         </div>
         </nav>
     </header>

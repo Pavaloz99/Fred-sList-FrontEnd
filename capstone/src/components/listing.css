@@ -1,0 +1,13 @@
+.listing {
+    height: 300px;
+}
+
+.container {
+    position: absolute;
+    display: flex;
+}
+
+.container img{
+    height: 250px;
+    width: 250px;
+}
