@@ -63,6 +63,15 @@ class UserModel {
             return res.json();
         });
     }
+
+    static follow = (id) => {
+        return fetch("http://localhost:3001/api/v1/auth/" + id + "/follow", {
+            credentials: "include",
+            method: "POST"
+        }).then(res => {
+            return res.json();
+        });
+    }
 }
 
 export default UserModel;

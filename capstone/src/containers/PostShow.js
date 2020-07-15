@@ -73,6 +73,15 @@ class PostShow extends Component {
             });
           }
 
+          handleSubmitFollow = (e) => {
+            e.preventDefault();
+            UserModel.follow(this.state.post.User._id).then(res => {
+                console.log(res);
+            }).catch(err => {
+                console.log(err);
+            });
+          }
+
 
 
     render(){
@@ -110,7 +119,7 @@ class PostShow extends Component {
                 <>
                 <input type="submit" value="Positive" onClick={this.handleSubmitPositive} />
                 <input type="submit" value="Negative" onClick={this.handleSubmitNegative} />
-                <button>Follow</button>
+                <button onClick={this.handleSubmitFollow}>Follow</button>
                 </>
                 }
                 </div>
