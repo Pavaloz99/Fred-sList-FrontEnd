@@ -46,7 +46,10 @@ class CreatePostModal extends Component {
         data.append("category", this.state.category);
         data.append("image", this.state.image);
         
-        PostModel.create(data).then(res => console.log(res)).catch(err => console.log(err))
+        PostModel.create(data).then(res => {
+          this.props.fetchPosts();
+          console.log(res)
+        }).catch(err => console.log(err))
     }
     
     openModal = () => {
@@ -110,11 +113,7 @@ class CreatePostModal extends Component {
       
         return(
             <>
-        <ul>
-            <li>
-                <a onClick={this.openModal} href="#">Create Post</a>
-            </li>
-        </ul>
+            <button onClick={this.openModal}>Create Post</button>
         <Modal
           isOpen={this.state.show}
           onRequestClose={this.closeModal}
@@ -124,39 +123,27 @@ class CreatePostModal extends Component {
           <h1>Create Post</h1>
           <form>
               <p>
-                  <p>
                   <label htmlFor="title">Title</label>
-                  </p>
                 <input onKeyUp={this.onTitleInput} type="text" name="title" placeholder="Title" required />
               </p>
               <p>
-                  <p>
                     <label htmlFor="description">Description</label>
-                  </p>
                 <textarea onKeyUp={this.onDescriptionInput} name="description" placeholder="Description" required/>
               </p>
               <p>
-                  <p>
                   <label htmlFor="condition">Condition</label>
-                  </p>
                 <input onKeyUp={this.onConditionInput} type="text" name="condition" placeholder="Condition" required/>
               </p>
               <p>
-                  <p>
                   <label htmlFor="asking">Asking</label>
-                  </p>
                 <input onKeyUp={this.onAskingInput} type="text" name="asking" placeholder="Asking" required/>
               </p>
               <p>
-                  <p>
                   <label htmlFor="category">Category</label>
-                  </p>
                 <input onKeyUp={this.onCategoryInput} type="text" name="category" placeholder="Category" required/>
               </p>
               <p>
-                  <p>
                   <label htmlFor="image">Image</label>
-                  </p>
                 <input onChange={this.onImageInput} type="file" name="image" placeholder="Image" required/>
               </p>
               <p>

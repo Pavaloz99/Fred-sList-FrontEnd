@@ -25,6 +25,20 @@ class UserModel {
     }
     static logout = () => {
         let request = axios.delete('http://localhost:3001/api/v1/auth/logout', {withCredentials: true})
+        return request;
+    }
+
+    static addLike = (id) => {
+        //return axios.post("http://localhost:3001/api/v1/auth/" + id + "/like", {withCredentials: true})
+        return fetch("http://localhost:3001/api/v1/auth/" + id + "/like", {
+            credentials: "include",
+            method: "post",
+        }).then(res => {
+           return res.json()
+        })
+    }
+    static addDislike = (id) => {
+        let account = axios.post("http://localhost:3001/api/v1/auth/" + id + "/dislike", {withCredentials: true})
     }
 }
 

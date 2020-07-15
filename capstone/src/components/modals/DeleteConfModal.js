@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 import Modal from 'react-modal';
-import UserModel from '../../models/User';
+import PostModel from '../../models/Posts';
 
 
 
@@ -22,7 +22,7 @@ Modal.setAppElement('body')
 
  
 
-class SignUpModal extends Component {
+class DeleteConfModal extends Component {
     
     state = {
         show: false,
@@ -43,6 +43,10 @@ class SignUpModal extends Component {
         });
       }
     
+      handleDeleteButton = () => {
+       this.props.handleDelete(this.props.id);
+       this.closeModal();
+      }
     
     render(){
       
@@ -55,24 +59,11 @@ class SignUpModal extends Component {
           style={customStyles}
           contentLabel="SignUp Form"
         >
-          <h1>Are You Sure You Want To Delete This Post</h1>
-          <form method="POST">
-                  <p>
-                  <label htmlFor="email">Email</label>
-                  </p>
-                  <p>
-                <input onKeyUp={this.onEmailInput} type="email" name="email" placeholder="Email" required />
-              </p>
-                  <p>
-                  <label htmlFor="password">Password</label>
-                  </p>
-                  <p>
-                <input onKeyUp={this.onPasswordInput} type="password" name="password" placeholder="Password" required/>
-              </p>
-              <p>
-                <input onClick={this.handleSubmit} type="submit" value="Login"/>
-              </p>
-          </form>
+        <h1>Are You Sure You Want To Delete This Post</h1>
+        <form>
+            <button onClick={this.handleDeleteButton}>Yes, Delete</button>
+            <button onClick={this.closeModal}>No</button>
+        </form>
         </Modal>
         </>
         );
@@ -80,4 +71,4 @@ class SignUpModal extends Component {
 }
 
 
-export default SignUpModal;
+export default DeleteConfModal;
