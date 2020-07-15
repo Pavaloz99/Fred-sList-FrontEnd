@@ -11,11 +11,20 @@ class PostShow extends Component {
     state = {
         post: null,
         gotData: false,
+        currentUser: null,
     }
 
 
     componentDidMount = () => {
         this.fetchData(this.props.match.params.id);
+    }
+
+    fetchCurrentUser = () => {
+        UserModel.fetch().then(data => {
+            this.setState({currentUser: data});
+        }).catch(err => {
+            console.log(err);
+        });
     }
 
     fetchData = (id) => {
@@ -79,8 +88,11 @@ class PostShow extends Component {
                     <h2>Asking:</h2>
                     <p>{" " + this.state.post.asking}</p>
                     <h2>Condition:</h2>
-                    <p>{" " + this.state.post.condition}</p>  
-                    <DeleteConfModal handleDelete={this.handleDelete} id={this.props.match.params.id} /> 
+                    <p>{" " + this.state.post.condition}</p>
+                    { this.props.currentUser._id.toString() === this.state.post.User._id.toString() ?
+                    <DeleteConfModal handleDelete={this.handleDelete} id={this.props.match.params.id} /> :
+                    <button>Message The Seller</button>
+                    } 
                     </div> 
             </div>
             <div className="row-user-more">
@@ -92,9 +104,15 @@ class PostShow extends Component {
                          "0%"} </h3>
                 <h3>Location: </h3>
                 <h3>Followers: {" " + this.state.post.User.Followers.length}</h3>
+                {this.props.currentUser._id.toString() === this.state.post.User._id.toString() ?
+                <>
+                <button>Edit</button></> :
+                <>
                 <input type="submit" value="Positive" onClick={this.handleSubmitPositive} />
                 <input type="submit" value="Negative" onClick={this.handleSubmitNegative} />
                 <button>Follow</button>
+                </>
+                }
                 </div>
                 <div className="carausel">
 

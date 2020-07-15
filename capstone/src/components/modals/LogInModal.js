@@ -22,7 +22,7 @@ Modal.setAppElement('body')
 
  
 
-class SignUpModal extends Component {
+class LogInModal extends Component {
     
     state = {
         show: false,
@@ -56,14 +56,16 @@ class SignUpModal extends Component {
         });
     }
 
-    handleSubmit = async (event) => {
+    handleSubmit = (event) => {
         event.preventDefault();
-        await UserModel.login({
+        UserModel.login({
             email: this.state.email,
             password: this.state.password
+        }).then(data => {
+          console.log(data);
+          this.props.fetch()
         })
         this.closeModal();
-        await this.props.fetch();
         console.log(this.props.fetch())
     }
 
@@ -109,4 +111,4 @@ class SignUpModal extends Component {
 }
 
 
-export default SignUpModal;
+export default LogInModal;

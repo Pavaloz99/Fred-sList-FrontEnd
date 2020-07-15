@@ -44,15 +44,15 @@ class Splash extends Component {
       console.log("hi")
       this._isMounted = false;
   }
-    fetchData = async () => {
+    fetchData = () => {
         console.log(this._isMounted);
         if(this._isMounted){
-        await UserModel.fetch().then(res => {
-            console.log(res.data);
+         UserModel.fetch().then(data => {
+            console.log(data);
             console.log(this.state)
-            if(res.data){
+            if(data){
             this.setState({
-                user: res.data,
+                user: data,
                 auth: true
             });
         }
@@ -84,7 +84,7 @@ render() {
                 <Route exact path="/" component={Home} />
                 <Route path="/listings" component={Listings} />
                 <Route path="/profile/:id" component={Profile} />
-                <Route path="/post/:id" component={PostShow} />
+                <Route path="/post/:id" render={props => <PostShow {...props}  currentUser={this.state.user} />} />
             </Switch>
             </>
         );
