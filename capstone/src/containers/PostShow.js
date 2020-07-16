@@ -85,6 +85,13 @@ class PostShow extends Component {
 
 
     render(){
+
+        const iconStyles = {
+            fontSize: "36px",
+            color: "blue", 
+            cursor: "pointer",
+        }
+
     return( // split this return into two components maybe three
             <main className="main-post-show">{this.state.gotData ? 
             <>
@@ -117,8 +124,8 @@ class PostShow extends Component {
                 <>
                 <button>Edit</button></> :
                 <>
-                <i class="fa fa-thumbs-o-up" style="font-size:36px" onClick={this.handleSubmitPositive} />
-                <i  onClick={this.handleSubmitNegative} />
+                <i className="fa fa-thumbs-o-up" style={iconStyles} onClick={this.handleSubmitPositive}></i>
+                <i className="fa fa-thumbs-o-down" style={iconStyles} onClick={this.handleSubmitNegative}></i>
                 <button onClick={this.handleSubmitFollow}>Follow</button>
                 </>
                 }

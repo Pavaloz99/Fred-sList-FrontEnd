@@ -28,7 +28,27 @@ a{
     display: flex;
 }
 .post-info {
-    margin-left: auto;
-    order: 2
+    display: flex;
+    position: relative;
+    width: 100%;
+    order: 2;
+    margin: auto;
+    margin-top: 0px;
 }
 
+.item-info-2 {
+    
+}
+
+.seller-info {
+    margin-left: auto;
+    margin-right: 40px;
+}
+
+.item-info-2 h1 {
+    margin-bottom: 75px;
+}
+
+.item-info-2 h2 {
+    margin-bottom: 75px;
+}
