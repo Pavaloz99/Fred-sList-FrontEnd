@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Listing from './listing';
 import PostModel from '../models/Posts';
 import CreatePostModal from './modals/CreatePostModal';
+import './listings.css'
 
 class Listings extends Component {
 
@@ -49,7 +50,7 @@ render(){
 return (
     <>
     <CreatePostModal fetchPosts={this.fetchPosts}/>
- <div>{this.generateLists(this.state.allPosts)}</div> 
+ <div className="list-container">{this.generateLists(this.state.allPosts)}</div> 
  </>
 );
 }

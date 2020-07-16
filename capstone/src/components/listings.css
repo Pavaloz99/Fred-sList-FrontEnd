@@ -1,0 +1,14 @@
+.list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-left: hotpink;
+    border-right: hotpink;
+    width: 1500px;
+}
+
+.list-container hr {
+    width: 100%;
+    margin: 0;
+}

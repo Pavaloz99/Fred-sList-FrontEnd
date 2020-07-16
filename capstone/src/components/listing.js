@@ -7,11 +7,10 @@ import './listing.css';
 function Listing(props) { 
         return(
             <>
-            <hr/>
+            <div className="container">
             <Link to ={"/post/" + props.id}>
-            <div className="listing">  
-                <div className="container">
-                    <div>
+             
+                    <div className="post-info">
                         <h1>Title: {props.name}</h1>
                         <h2>Condition: {props.condition}</h2>
                         <h2>Asking: {props.price}</h2>
@@ -21,10 +20,8 @@ function Listing(props) {
                     <div className="img-container">
                         <img src={"data:image/jpeg;base64," + props.img} alt="Something"/>
                     </div>
-                </div>
-            </div>
             </Link>
-            <hr/>
+        </div>
             </>
         )
 }

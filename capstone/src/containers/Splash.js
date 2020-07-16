@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import UserModel from '../models/User';
-import Nav from '../components/nav'
+import Navbar from '../components/nav'
 import Home from './Home';
 import Profile from './Profile';
 import Listings from '../components/Listings'
@@ -79,7 +79,7 @@ class Splash extends Component {
 render() {
         return(
             <>
-            <Nav isLoggedIn={this.state.auth} user={this.state.user} fetch={this.fetchData} logout={this.endSess}/>
+            <Navbar isLoggedIn={this.state.auth} user={this.state.user} fetch={this.fetchData} logout={this.endSess}/>
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/listings" component={Listings} />

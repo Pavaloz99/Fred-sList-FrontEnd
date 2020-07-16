@@ -11,9 +11,8 @@ function Nav(props){
     <>
     <header>
         <nav>
-        <NavLink to="/listings">Listings</NavLink>
         <div className="Auth-btn">
-        {!props.isLoggedIn ? <> <LogInModal fetch={props.fetch}/> <SignUpModal /> </> : <><NavLink to="/">Home</NavLink><NavLink to={'/profile/' + props.user._id}>Account</NavLink> <button onClick={props.logout}>Logout</button></> }      
+        {!props.isLoggedIn ? <> <NavLink to="/listings">Listings</NavLink> <LogInModal fetch={props.fetch}/> <SignUpModal /> </> : <> <NavLink to="/listings">Listings</NavLink><NavLink to="/">Home</NavLink><NavLink to={'/profile/' + props.user._id}>Account</NavLink> <button onClick={props.logout}>Logout</button></> }      
         </div>
         </nav>
     </header>

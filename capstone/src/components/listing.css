@@ -1,13 +1,29 @@
 .listing {
-    height: 300px;
+display: flex;
+position: absolute;
+box-sizing: border-box;
 }
 
 .container {
-    position: absolute;
+    position: relative;
     display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 1000px;
+    border-top: 1px solid black;
 }
 
 .container img{
     height: 250px;
     width: 250px;
 }
+a{
+    position: relative;
+    height: 100%;
+    display: flex;
+}
+.post-info {
+    margin-left: auto;
+    order: 2
+}
+
