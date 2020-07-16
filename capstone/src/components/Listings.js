@@ -49,8 +49,8 @@ class Listings extends Component {
 render(){
 return (
     <>
-    <CreatePostModal fetchPosts={this.fetchPosts}/>
- <div className="list-container">{this.generateLists(this.state.allPosts)}</div> 
+    
+    <main><div className="left-col"><button>Hello</button></div><div className="list-container">{this.generateLists(this.state.allPosts)}</div><div className="right-col"><CreatePostModal fetchPosts={this.fetchPosts}/></div></main> 
  </>
 );
 }

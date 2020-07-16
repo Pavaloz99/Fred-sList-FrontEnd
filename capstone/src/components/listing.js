@@ -21,7 +21,7 @@ function Listing(props) {
                         <img src={"data:image/jpeg;base64," + props.img} alt="Something"/>
                     </div>
             </Link>
-        </div>
+            </div>
             </>
         )
 }

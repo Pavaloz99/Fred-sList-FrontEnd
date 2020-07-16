@@ -1,15 +1,48 @@
 .list-container {
+    border-left: 1px solid hotpink;
+    border-right: 1px solid hotpink;
+    width: 1050px;
+    margin: 0 auto;
+    overflow-y: scroll;
+    height: 100%;
+    bottom: 0;
+    position: relative;
+}
+
+
+
+main{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-left: hotpink;
-    border-right: hotpink;
-    min-width: 1500px;
-    margin: 0;
+    height: calc(100vh - 40px);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+}
+
+.right-col {
+    margin: 0 auto;
+    width: 150px
+}
+
+.left-col {
+    margin: 0 auto;
+    width: 150px;
 }
 
 .list-container hr {
     width: 100%;
     margin: 0;
+}
+
+.create {
+    display: inline;
+}
+
+.vertical-bar {
+    width: 1px;
+    height: 10px;
+    margin: 0;
+    border: 0;
+    display: inline; 
 }

@@ -1,10 +1,17 @@
 header {
     height: 40px;
+    width: 100%;
     background-color: darkblue;
+    position: fixed;
+    z-index: 100;
+    top: 0;
 }
 
 nav {
     display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
     
 }
 
