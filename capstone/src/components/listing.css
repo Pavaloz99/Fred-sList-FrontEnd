@@ -10,12 +10,17 @@ box-sizing: border-box;
     flex-direction: column;
     height: 300px;
     width: 1000px;
-    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .container img{
     height: 250px;
     width: 250px;
+}
+.img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 a{
     position: relative;
