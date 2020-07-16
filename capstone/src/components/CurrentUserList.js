@@ -21,7 +21,7 @@ class CurrentUserList extends Component {
     render(){
         return(
             <>
-            <div>{this.props.currentUser ? this.generateLists(this.props.currentUser.Posts, this.props.currentUser) : "..."}</div>
+            <div className="vertical-bar"></div><div>{this.props.currentUser ? this.generateLists(this.props.currentUser.Posts, this.props.currentUser) : "..."}</div><div className="vertical-bar"></div>
             </>
         )
     }

@@ -5,7 +5,8 @@
     align-items: center;
     border-left: hotpink;
     border-right: hotpink;
-    width: 1500px;
+    min-width: 1500px;
+    margin: 0;
 }
 
 .list-container hr {
