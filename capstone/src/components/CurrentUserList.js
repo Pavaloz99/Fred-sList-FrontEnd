@@ -11,8 +11,8 @@ class CurrentUserList extends Component {
            return <Listing name={post.title} fetchPosts={this.fetchPosts} id={post._id} condition={post.condition} price={post.asking} 
                    user={user ? user.username : "secret"} 
                    rating={user.Rating.length ? 
-                       (user.Rating.reduce((accumulator, currentValue) => 
-                       accumulator + currentValue)/user.Rating.length)*100 + "%" :
+                       Math.round((user.Rating.reduce((accumulator, currentValue) => 
+                       accumulator + currentValue)/user.Rating.length)*100) + "%" :
                         "0%"} 
                         img={post.User ? this.props.bufferToBase64(post.image.data) : "..."}/>
            })

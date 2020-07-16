@@ -40,8 +40,8 @@ class Listings extends Component {
             return <Listing name={post.title} fetchPosts={this.fetchPosts} id={post._id} condition={post.condition} price={post.asking} 
                     user={post.User ? post.User.username : "secret"} 
                     rating={post.User.Rating.length ? 
-                        (post.User.Rating.reduce((accumulator, currentValue) => 
-                        accumulator + currentValue)/post.User.Rating.length)*100 + "%" :
+                        Math.round((post.User.Rating.reduce((accumulator, currentValue) => 
+                        accumulator + currentValue)/post.User.Rating.length)*100) + "%" :
                          "0%"} 
                          img={this.arrayBufferToBase64(post.image.data)}/>
             })
@@ -50,7 +50,7 @@ render(){
 return (
     <>
     
-    <main><div className="left-col"><button>Hello</button></div><div className="list-container">{this.generateLists(this.state.allPosts)}</div><div className="right-col"><CreatePostModal fetchPosts={this.fetchPosts}/></div></main> 
+    <main className="main-listings"><div className="left-col"><button>Hello</button></div><div className="list-container">{this.generateLists(this.state.allPosts)}</div><div className="right-col"><CreatePostModal fetchPosts={this.fetchPosts}/></div></main> 
  </>
 );
 }

@@ -1,7 +1,7 @@
 img {
     margin: 0 25px;
-    height: 300px;
-    width: 300px;
+    height: 500px;
+    width: 500px;
     border-radius: 5px;
 }
 
@@ -12,19 +12,28 @@ img {
 }
 
 .item-info {
-    width: 600px;
-    height: 300px;
+    width: 1100px;
+    height: 500px;
     background-color: hotpink;
-    margin: 0 25px;
+    margin: 0 50px;
     border-radius: 5px;
 }
 
 .row-user-more {
     margin: 50px 25px;
+    margin-top: 20px;
+    margin-bottom: 0;
     width: 500px;
-    height: 250px;
+    height: 300px;
     background-color: hotpink;
     border-radius: 5px;
 }
 
+.main-post-show {
+    margin-top: 40px;
+}
 
+.title-post-show {
+    text-align: left;
+    margin-left:25px; 
+}

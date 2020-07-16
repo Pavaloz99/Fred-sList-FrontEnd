@@ -86,9 +86,9 @@ class PostShow extends Component {
 
     render(){
     return( // split this return into two components maybe three
-            <main>{this.state.gotData ? 
+            <main className="main-post-show">{this.state.gotData ? 
             <>
-            <h1>{this.state.post.title}</h1>
+            <h1 className="title-post-show">{this.state.post.title}</h1>
             <div className="row-info">
                     <img src={"data:image/jpeg;base64," + this.arrayBufferToBase64(this.state.post.image.data)} alt="something"></img>
                 <div className="item-info">
@@ -108,8 +108,8 @@ class PostShow extends Component {
                 <div className="user">
                 <h3>Username: {" " + this.state.post.User.username}</h3>
                 <h3>Rating: {this.state.post.User.Rating.length ? 
-                        (this.state.post.User.Rating.reduce((accumulator, currentValue) => 
-                        accumulator + currentValue)/this.state.post.User.Rating.length)*100 + "%" :
+                        Math.round((this.state.post.User.Rating.reduce((accumulator, currentValue) => 
+                        accumulator + currentValue)/this.state.post.User.Rating.length)*100) + "%" :
                          "0%"} </h3>
                 <h3>Location: </h3>
                 <h3>Followers: {" " + this.state.post.User.Followers.length}</h3>
@@ -117,8 +117,8 @@ class PostShow extends Component {
                 <>
                 <button>Edit</button></> :
                 <>
-                <input type="submit" value="Positive" onClick={this.handleSubmitPositive} />
-                <input type="submit" value="Negative" onClick={this.handleSubmitNegative} />
+                <i class="fa fa-thumbs-o-up" style="font-size:36px" onClick={this.handleSubmitPositive} />
+                <i  onClick={this.handleSubmitNegative} />
                 <button onClick={this.handleSubmitFollow}>Follow</button>
                 </>
                 }
