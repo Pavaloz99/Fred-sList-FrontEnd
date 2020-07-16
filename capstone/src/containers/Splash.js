@@ -83,7 +83,7 @@ render() {
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/listings" component={Listings} />
-                <Route path="/profile/:id" component={Profile} />
+                <Route path="/profile/:id" render={props=> <Profile {...props} currentUser={this.state.user} />} />
                 <Route path="/post/:id" render={props => <PostShow {...props}  currentUser={this.state.user} />} />
             </Switch>
             </>

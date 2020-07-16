@@ -1,0 +1,61 @@
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    background-color: hotpink;
+    min-height: 250px;
+    min-width: 1300px;
+    margin-left: auto;
+    order: 2;
+    border-radius: 5px;
+    position: relative;
+}
+
+.user-info div span {
+    margin: 20px 50px;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.stats{
+    margin-top: 50px;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+}
+
+.will-be-img {
+    min-height: 250px;
+    min-width: 250px;
+    order: 1;
+    background-color: hotpink;
+    border-radius: 5px;
+    margin-right: auto;
+}
+
+.profile-card {
+    display: flex;
+    margin: 25px 100px;
+}
+
+.stats-num {
+    font-size: 60px;
+}
+
+p {
+    margin-top: 15px;
+}
+
+.data-container {
+    margin-top: 55px;
+}
+
+.greeting {
+    margin-top: 5px;
+    margin-left: 50px;
+    font-size: 55px;
+}
+h4 {
+    margin-top: 5px;
+    margin-right: 50px; 
+}

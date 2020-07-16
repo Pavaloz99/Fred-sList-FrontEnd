@@ -72,6 +72,14 @@ class UserModel {
             return res.json();
         });
     }
+    static fetchSingle = (id) => {
+        return fetch("http://localhost:3001/api/v1/auth/" + id + "/anyAccount", {
+            credentials: "include",
+            method: "GET"
+        }).then(res => {
+            return res.json();
+        });
+    } 
 }
 
 export default UserModel;

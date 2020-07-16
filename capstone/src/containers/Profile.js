@@ -1,8 +1,9 @@
 import React from 'react';
+import UserDetails from '../components/UserDetails';
 
 
 function Profile(props) {
-    return <h1>This is profile page</h1>
+    return <UserDetails accountId={props.match.params.id} currentUser={props.currentUser} />
 }
 
 export default Profile;
