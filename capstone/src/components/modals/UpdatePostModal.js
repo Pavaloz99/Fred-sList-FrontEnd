@@ -24,7 +24,7 @@ Modal.setAppElement('body')
 
  
 
-class CreatePostModal extends Component {
+class UpdatePostModal extends Component {
     
     state = {
         show: false,
@@ -46,7 +46,7 @@ class CreatePostModal extends Component {
         data.append("category", this.state.category);
         data.append("image", this.state.image);
         
-        PostModel.create(data).then(res => {
+        PostModel.update(this.props.postId, data).then(res => {
           this.props.fetchPosts();
           console.log(res)
         }).catch(err => console.log(err))
@@ -113,14 +113,14 @@ class CreatePostModal extends Component {
       
         return(
             <>
-            <button className="create" onClick={this.openModal}>Create Post</button>
+            <button className="create" onClick={this.openModal}>Update Post</button>
         <Modal
           isOpen={this.state.show}
           onRequestClose={this.closeModal}
           style={customStyles}
           contentLabel="CreatePost Form"
         >
-          <h1>Create Post</h1>
+          <h1>Update Post</h1>
           <form>
               <p>
                   <label htmlFor="title">Title</label>
@@ -128,7 +128,7 @@ class CreatePostModal extends Component {
               </p>
               <p>
                     <label htmlFor="description">Description</label>
-                <textarea onKeyUp={this.onDescriptionInput} name="description" placeholder="Description" required/>
+                <textarea onKeyUp={this.onDescriptionInput} name="description" placeholder="Description" value={} required/>
               </p>
               <p>
                   <label htmlFor="condition">Condition</label>
@@ -143,7 +143,7 @@ class CreatePostModal extends Component {
                 <input onKeyUp={this.onCategoryInput} type="text" name="category" placeholder="Category" required/>
               </p>
               <p>
-                  <label htmlFor="image">Image</label>
+                  <label htmlFor="image">New Image</label>
                 <input onChange={this.onImageInput} type="file" name="image" placeholder="Image" required/>
               </p>
               <p>
@@ -157,4 +157,4 @@ class CreatePostModal extends Component {
 }
 
 
-export default CreatePostModal;
+export default UpdatePostModal;

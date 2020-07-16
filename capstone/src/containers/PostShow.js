@@ -3,6 +3,7 @@ import PostModel from '../models/Posts';
 import DeleteConfModal from '../components/modals/DeleteConfModal';
 import UserModel from '../models/User';
 import './PostShow.css';
+import UpdatePostModal from '../components/modals/UpdatePostModal';
 
 
 
@@ -122,7 +123,8 @@ class PostShow extends Component {
                 <h3>Followers: {" " + this.state.post.User.Followers.length}</h3>
                 {this.props.currentUser._id.toString() === this.state.post.User._id.toString() ?
                 <>
-                <button>Edit</button></> :
+                <UpdatePostModal postId={this.state.post._id}/></> :
+                
                 <>
                 <i className="fa fa-thumbs-o-up" style={iconStyles} onClick={this.handleSubmitPositive}></i>
                 <i className="fa fa-thumbs-o-down" style={iconStyles} onClick={this.handleSubmitNegative}></i>

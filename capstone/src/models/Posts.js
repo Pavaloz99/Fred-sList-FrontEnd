@@ -20,6 +20,16 @@ class PostModel {
         let deletedPost = axios.delete("http://localhost:3001/api/v1/posts/" + id + "/delete", {withCredentials: true});
         return deletedPost;
     }
+
+    static update = (id, data) => {
+        return fetch("http://localhost:3001/api/v1/posts/" + id, {
+            credentials: "include",
+            method: "PUT",
+            body: data  
+        }).then(res => {
+            res.json();
+        })
+    }
 }
 
 export default PostModel;
