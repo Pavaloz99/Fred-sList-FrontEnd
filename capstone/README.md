@@ -4,5 +4,5 @@ Fred'slist is an alternative to craigslist that takes all the great feature of c
   
 
 Technologies Used:
-    -React
-    -Express
+ -React
+ -Express
