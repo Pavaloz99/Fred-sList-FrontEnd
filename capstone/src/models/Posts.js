@@ -25,6 +25,18 @@ class PostModel {
         let deletedPost = axios.delete("http://localhost:3001/api/v1/posts/" + id + "/delete", {withCredentials: true});
         return deletedPost;
     }
+    static fetchByCategory = (data) => {
+        return fetch("http://localhost:3001/api/v1/posts/category", {
+            credentials: "include",
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify(data),
+        }).then(res => {
+            res.json();
+        });
+    }
 
     static update = (id, data) => {
         return fetch("http://localhost:3001/api/v1/posts/" + id, {
