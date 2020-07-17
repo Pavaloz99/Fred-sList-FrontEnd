@@ -3,6 +3,7 @@ import ReactDom from 'react-dom';
 import Modal from 'react-modal';
 import PostModel from '../../models/Posts';
 import Axios from 'axios';
+import './PostModal.css';
 
 
 
@@ -14,8 +15,10 @@ const customStyles = {
       right                 : 'auto',
       bottom                : 'auto',
       marginRight           : '-50%',
-      transform             : 'translate(-50%, -50%)'
-    }
+      transform             : 'translate(-50%, -50%)',
+      backgroundColor       : 'blue',
+    },
+    
   };
 
 
@@ -110,7 +113,8 @@ class CreatePostModal extends Component {
     
     
     render(){
-      
+
+     
         return(
             <>
             <button className="create" onClick={this.openModal}>Create Post</button>
@@ -140,7 +144,17 @@ class CreatePostModal extends Component {
               </p>
               <p>
                   <label htmlFor="category">Category</label>
-                <input onKeyUp={this.onCategoryInput} type="text" name="category" placeholder="Category" required/>
+                <select onChange={this.onCategoryInput} name="category">
+                  <option value="">-- Select Category --</option>
+                  <option value="Electronics">Electronics</option>
+                  <option value="Home And Bath">Home And Bath</option>
+                  <option value="Clothing">Clothing</option>
+                  <option value="Pet Supplies">Pet Supplies</option>
+                  <option value="Beauty And Health">Beauty And Health</option>
+                  <option value="Toys">Toys</option>
+                  <option value="Handmade">Handmade</option>
+                  <option value="Sports">Sports</option>
+                </select>
               </p>
               <p>
                   <label htmlFor="image">Image</label>

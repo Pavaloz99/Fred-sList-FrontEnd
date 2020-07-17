@@ -8,7 +8,7 @@ function Listing(props) {
         return(
             <>
             <div className="container">
-            <Link to ={"/post/" + props.id}>
+            <Link className="post-link" to ={"/post/" + props.id}>
              
                     <div className="post-info">
                         <div className="item-info-2">

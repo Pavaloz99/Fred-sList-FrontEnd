@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Listing from './listing';
 import PostModel from '../models/Posts';
 import CreatePostModal from './modals/CreatePostModal';
+import {Link} from 'react-router-dom';
 import './listings.css'
 
 class Listings extends Component {
@@ -50,7 +51,37 @@ render(){
 return (
     <>
     
-    <main className="main-listings"><div className="left-col"><button>Hello</button></div><div className="list-container">{this.generateLists(this.state.allPosts)}</div><div className="right-col"><CreatePostModal fetchPosts={this.fetchPosts}/></div></main> 
+    <main className="main-listings">
+        <div className="left-col">
+            <p>
+                <Link to={"/"}><button>Home</button></Link>
+            </p>
+            <p>
+                <button>Electronics</button>
+            </p>
+            <p> 
+                <button>Home And Bath</button>
+            </p>
+            <p>
+                <button>Clothing</button>
+            </p>
+            <p>
+                <button>Pet Supplies</button>
+            </p>
+            <p>
+                <button>Beauty And Supplies</button>
+            </p>
+            <p> 
+                <button>Toys</button>
+            </p>
+            <p>
+                <button>Handmade</button>
+            </p>
+            <p>
+                <button>Sports</button>
+            </p>
+         </div>
+    <div className="list-container">{this.generateLists(this.state.allPosts)}</div><div className="right-col"><CreatePostModal fetchPosts={this.fetchPosts}/></div></main> 
  </>
 );
 }

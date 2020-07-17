@@ -22,7 +22,7 @@ box-sizing: border-box;
     align-items: center;
     justify-content: center;
 }
-a{
+.post-link{
     position: relative;
     height: 100%;
     display: flex;
