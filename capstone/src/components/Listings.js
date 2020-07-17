@@ -34,7 +34,17 @@ class Listings extends Component {
                 return window.btoa(binary);
     };
     
-    
+    updatePostsListElectronics = (e) => {
+        console.log(e.target.value)
+        PostModel.fetchByCategoryElectronics().then(res => {
+            console.log(res)
+            this.setState({
+                allPosts: res.post
+            })
+            }).catch(err => {
+                console.log(err);
+        });
+    }
 
     generateLists (posts) {
          return posts.map(post => {
@@ -57,28 +67,28 @@ return (
                 <Link to={"/"}><button>Home</button></Link>
             </p>
             <p>
-                <button>Electronics</button>
+                <button onClick={this.updatePostsListElectronics} value="Electronics">Electronics</button>
             </p>
             <p> 
-                <button>Home And Bath</button>
+                <button onClick={this.updatePostsList} value="Home And Bath">Home And Bath</button>
             </p>
             <p>
-                <button>Clothing</button>
+                <button onClick={this.updatePostsList} value="Clothing">Clothing</button>
             </p>
             <p>
-                <button>Pet Supplies</button>
+                <button onClick={this.updatePostsList} value="Pet Supplies">Pet Supplies</button>
             </p>
             <p>
-                <button>Beauty And Supplies</button>
+                <button onClick={this.updatePostsList} value="Beauty And Supplies">Beauty And Supplies</button>
             </p>
             <p> 
-                <button>Toys</button>
+                <button onClick={this.updatePostsList} value="Toys">Toys</button>
             </p>
             <p>
-                <button>Handmade</button>
+                <button onClick={this.updatePostsList} value="Handmade">Handmade</button>
             </p>
             <p>
-                <button>Sports</button>
+                <button onClick={this.updatePostsList} value="Sports">Sports</button>
             </p>
          </div>
     <div className="list-container">{this.generateLists(this.state.allPosts)}</div><div className="right-col"><CreatePostModal fetchPosts={this.fetchPosts}/></div></main> 

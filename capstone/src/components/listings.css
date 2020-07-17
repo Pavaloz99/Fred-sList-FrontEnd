@@ -1,6 +1,6 @@
 .list-container {
-    border-left: 1px solid hotpink;
-    border-right: 1px solid hotpink;
+    border-left: 1px solid #f5eaea;
+    border-right: 1px solid #f5eaea;
     width: 1050px;
     margin: 0 auto;
     overflow-y: scroll;
@@ -10,7 +10,24 @@
     position: relative;
 }
 
+button {
+    border: none;
+    background-color: rgba(91, 86, 86, 0);
+    color: #7fcd91;
+    border-radius: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 250px;
+    height: 50px;
+    margin: 0 auto;
+    transition: 0.3s linear ;
+    
+}
 
+button:hover {
+    background-color: rgba(245, 234, 234, 0.3);
+}
 
 .main-listings{
     display: flex;
@@ -34,6 +51,7 @@
 .list-container hr {
     width: 100%;
     margin: 0;
+    color: #f5eaea;
 }
 
 .create {

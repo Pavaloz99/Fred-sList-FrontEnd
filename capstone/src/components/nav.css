@@ -1,7 +1,7 @@
 header {
     height: 40px;
     width: 100%;
-    background-color: darkblue;
+    background-color: #5b5656;
     position: fixed;
     z-index: 100;
     top: 0;
@@ -12,13 +12,13 @@ nav {
     height: 100%;
     width: 100%;
     align-items: center;
-    
+}
+nav a {
+    margin-left: auto;
 }
 
 .Auth-btn {
-    display: flex;
-    right:0;
-    position: absolute;
+    margin-left: auto
 }
 li {
     list-style: none;
@@ -26,6 +26,6 @@ li {
 }
 
 a {
-    color: hotpink;
+    color: #7fcd91;
     text-decoration-line: none;
 }
