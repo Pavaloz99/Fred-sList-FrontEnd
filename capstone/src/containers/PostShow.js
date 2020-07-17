@@ -11,8 +11,9 @@ class PostShow extends Component {
 
     state = {
         post: null,
-        gotData: false,
-        currentUser: null,
+        liked: false,
+        disliked: false,
+        likedHasChanged: false,
     }
 
 
@@ -20,25 +21,30 @@ class PostShow extends Component {
         this.fetchData(this.props.match.params.id);
     }
 
-    fetchCurrentUser = () => {
-        UserModel.fetch().then(data => {
-            this.setState({currentUser: data});
-        }).catch(err => {
-            console.log(err);
-        });
+    // fetchCurrentUser = () => {
+    //     UserModel.fetch().then(data => {
+    //         this.setState({currentUser: data});
+    //     }).catch(err => {
+    //         console.log(err);
+    //     });
+    // }
+
+    componentDidUpdate = (prevProps, prevState) => {
+        if(this.state.likedHasChanged !== prevState.likedHasChanged){
+            this.fetchData(this.props.match.params.id);
+        }
     }
 
     fetchData = (id) => {
          PostModel.fetchOne(id).then(res => {
             console.log(res)
             this.setState({
-                post: res.data.post,
-                gotData: true,
+                post: res.post,
             });
+            console.log(this.state)
         }).catch(err => {
             console.log(err);
         });
-        console.log(this.state)
     }
 
     arrayBufferToBase64(buffer) {
@@ -61,6 +67,11 @@ class PostShow extends Component {
           e.preventDefault();
           UserModel.addLike(this.state.post.User._id).then(res => {
               console.log(res);
+              this.setState({
+                  likedHasChanged: !this.state.likedHasChanged,
+                  liked: true,
+                  disliked: false,
+              });
           }).catch(err => {
               console.log(err);
           });
@@ -68,6 +79,11 @@ class PostShow extends Component {
         handleSubmitNegative = (e) => {
             e.preventDefault();
             UserModel.addDislike(this.state.post.User._id).then(res => {
+                this.setState({
+                    likedHasChanged: !this.state.likedHasChanged,
+                    liked: false,
+                    disliked: true,
+                });
                 console.log(res);
             }).catch(err => {
                 console.log(err);
@@ -89,12 +105,23 @@ class PostShow extends Component {
 
         const iconStyles = {
             fontSize: "36px",
-            color: "blue", 
             cursor: "pointer",
         }
 
+        const iconStylesPos = {
+            fontSize: "46px",
+            color: "green",
+            cursor: "pointer"
+        }
+
+        const iconStylesNeg = {
+            fontSize: "46px",
+            color: "red",
+            cursor: "pointer"
+        }
+
     return( // split this return into two components maybe three
-            <main className="main-post-show">{this.state.gotData ? 
+            <main className="main-post-show">{this.state.post ? 
             <>
             <h1 className="title-post-show">{this.state.post.title}</h1>
             <div className="row-info">
@@ -106,7 +133,7 @@ class PostShow extends Component {
                     <p>{" " + this.state.post.asking}</p>
                     <h2>Condition:</h2>
                     <p>{" " + this.state.post.condition}</p>
-                    { this.props.currentUser._id.toString() === this.state.post.User._id.toString() ?
+                    { this.props.currentUser && this.props.currentUser._id.toString() === this.state.post.User._id.toString() ?
                     <DeleteConfModal handleDelete={this.handleDelete} id={this.props.match.params.id} /> :
                     <button>Message The Seller</button>
                     } 
@@ -121,13 +148,13 @@ class PostShow extends Component {
                          "0%"} </h3>
                 <h3>Location: </h3>
                 <h3>Followers: {" " + this.state.post.User.Followers.length}</h3>
-                {this.props.currentUser._id.toString() === this.state.post.User._id.toString() ?
+                {this.props.currentUser && (this.props.currentUser._id.toString() === this.state.post.User._id.toString()) ?
                 <>
                 <UpdatePostModal postId={this.state.post._id}/></> :
                 
                 <>
-                <i className="fa fa-thumbs-o-up" style={iconStyles} onClick={this.handleSubmitPositive}></i>
-                <i className="fa fa-thumbs-o-down" style={iconStyles} onClick={this.handleSubmitNegative}></i>
+                <i className="fa fa-thumbs-o-up" style={this.props.currentUser ? this.props.currentUser.hasLiked.includes(this.state.post.User._id.toString())? iconStylesPos : iconStyles : ''} onClick={this.handleSubmitPositive}></i>
+                <i className="fa fa-thumbs-o-down" style={this.props.currentUser ? this.props.currentUser.hasDisliked.includes(this.state.post.User._id.toString()) ? iconStylesNeg : iconStyles: ''} onClick={this.handleSubmitNegative}></i>
                 <button onClick={this.handleSubmitFollow}>Follow</button>
                 </>
                 }

@@ -124,27 +124,27 @@ class UpdatePostModal extends Component {
           <form>
               <p>
                   <label htmlFor="title">Title</label>
-                <input onKeyUp={this.onTitleInput} type="text" name="title" placeholder="Title" required />
+                <input onKeyUp={this.onTitleInput} type="text" name="title" placeholder="Title" value="Hi" required />
               </p>
               <p>
                     <label htmlFor="description">Description</label>
-                <textarea onKeyUp={this.onDescriptionInput} name="description" placeholder="Description" value={} required/>
+                <textarea onKeyUp={this.onDescriptionInput} name="description" placeholder="Description" value="Hi" required/>
               </p>
               <p>
                   <label htmlFor="condition">Condition</label>
-                <input onKeyUp={this.onConditionInput} type="text" name="condition" placeholder="Condition" required/>
+                <input onKeyUp={this.onConditionInput} type="text" name="condition" placeholder="Condition" value="Hi" required/>
               </p>
               <p>
                   <label htmlFor="asking">Asking</label>
-                <input onKeyUp={this.onAskingInput} type="text" name="asking" placeholder="Asking" required/>
+                <input onKeyUp={this.onAskingInput} type="text" name="asking" placeholder="Asking" value="Hi" required/>
               </p>
               <p>
                   <label htmlFor="category">Category</label>
-                <input onKeyUp={this.onCategoryInput} type="text" name="category" placeholder="Category" required/>
+                <input onKeyUp={this.onCategoryInput} type="text" name="category" placeholder="Category" value="Hi" required/>
               </p>
               <p>
                   <label htmlFor="image">New Image</label>
-                <input onChange={this.onImageInput} type="file" name="image" placeholder="Image" required/>
+                <input onChange={this.onImageInput} type="file" name="image" placeholder="Image" />
               </p>
               <p>
                 <input onClick={this.handleSubmit} type="submit" value="Post"/>

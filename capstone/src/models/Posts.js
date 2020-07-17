@@ -7,8 +7,13 @@ class PostModel {
     }
 
     static fetchOne = (id) => {
-        let post = axios.get("http://localhost:3001/api/v1/posts/" + id, {withCredentials: true});
-        return post;
+        //let post = axios.get("http://localhost:3001/api/v1/posts/" + id, {withCredentials: true});
+        return fetch("http://localhost:3001/api/v1/posts/" + id, {
+            credentials: "include",
+            method: "GET"
+        }).then(res => {
+           return res.json();
+        });
     }
 
     static create = (data) => {
@@ -27,7 +32,7 @@ class PostModel {
             method: "PUT",
             body: data  
         }).then(res => {
-            res.json();
+            return res.json();
         })
     }
 }
