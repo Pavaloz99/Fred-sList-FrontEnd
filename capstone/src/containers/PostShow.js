@@ -19,6 +19,32 @@ class PostShow extends Component {
 
     componentDidMount = () => {
         this.fetchData(this.props.match.params.id);
+        this.grabCurrentUser();
+    }
+        
+    grabCurrentUser = () => {
+        UserModel.fetch().then(data => {
+            this.setState({
+                currentUser: data,
+            });
+        }).catch(err => {
+            console.log(err);
+        });
+    }
+
+    likeFromStart = () => {
+        if(this.props.currentUser.hasLiked.includes(this.state.post.User._id.toString())){
+            console.log('hi')
+            this.setState({
+                liked: true,
+                disliked: false,
+            });
+        } else if(this.props.currentUser.hasDisliked.includes(this.state.post.User._id.toString())) {
+            this.setState({
+                liked: false,
+                disliked: true,
+            });
+        }
     }
 
     // fetchCurrentUser = () => {
@@ -32,6 +58,7 @@ class PostShow extends Component {
     componentDidUpdate = (prevProps, prevState) => {
         if(this.state.likedHasChanged !== prevState.likedHasChanged){
             this.fetchData(this.props.match.params.id);
+            this.grabCurrentUser();
         }
     }
 
@@ -121,8 +148,8 @@ class PostShow extends Component {
         }
 
     return( // split this return into two components maybe three
-            <main className="main-post-show">{this.state.post ? 
-            <>
+            <main className="main-post-show">{this.state.post && this.props.currentUser ? 
+             <>
             <h1 className="title-post-show">{this.state.post.title}</h1>
             <div className="row-info">
                     <img src={"data:image/jpeg;base64," + this.arrayBufferToBase64(this.state.post.image.data)} alt="something"></img>
@@ -153,8 +180,8 @@ class PostShow extends Component {
                 <UpdatePostModal postId={this.state.post._id}/></> :
                 
                 <>
-                <i className="fa fa-thumbs-o-up" style={this.props.currentUser ? this.props.currentUser.hasLiked.includes(this.state.post.User._id.toString())? iconStylesPos : iconStyles : ''} onClick={this.handleSubmitPositive}></i>
-                <i className="fa fa-thumbs-o-down" style={this.props.currentUser ? this.props.currentUser.hasDisliked.includes(this.state.post.User._id.toString()) ? iconStylesNeg : iconStyles: ''} onClick={this.handleSubmitNegative}></i>
+                <i className="fa fa-thumbs-o-up" style={this.state.currentUser.hasLiked.includes(this.state.post.User._id.toString()) ? iconStylesPos : iconStyles} onClick={this.handleSubmitPositive}></i>
+                <i className="fa fa-thumbs-o-down" style={this.state.currentUser.hasDisliked.includes(this.state.post.User._id.toString()) ? iconStylesNeg : iconStyles} onClick={this.handleSubmitNegative}></i>
                 <button onClick={this.handleSubmitFollow}>Follow</button>
                 </>
                 }
