@@ -128,7 +128,7 @@ class UpdatePostModal extends Component {
               </p>
               <p>
                     <label htmlFor="description">Description</label>
-                <textarea onKeyUp={this.onDescriptionInput} name="description" placeholder="Description" value={this.props.post.description} required/>
+                <textarea onKeyUp={this.onDescriptionInput} name="description" placeholder="Description" value={this.props.post.description} rows="10" cols="10" required/>
               </p>
               <p>
                   <label htmlFor="condition">Condition</label>

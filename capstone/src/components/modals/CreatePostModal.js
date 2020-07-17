@@ -134,21 +134,27 @@ class CreatePostModal extends Component {
           <form>
               <p>
                   <label htmlFor="title">Title</label>
+                  <p>
                 <input onKeyUp={this.onTitleInput} type="text" name="title" placeholder="Title" required />
+                </p>             
               </p>
               <p>
                     <label htmlFor="description">Description</label>
                     <p>
-                <textarea onKeyUp={this.onDescriptionInput} name="description" placeholder="Description" required/>
+                <textarea onKeyUp={this.onDescriptionInput} name="description" placeholder="Description" rows="6" cols="50" required/>
              </p>
               </p>
               <p>
                   <label htmlFor="condition">Condition</label>
+                  <p>
                 <input onKeyUp={this.onConditionInput} type="text" name="condition" placeholder="Condition" required/>
+                </p>            
               </p>
               <p>
                   <label htmlFor="asking">Asking</label>
+                  <p>
                 <input onKeyUp={this.onAskingInput} type="text" name="asking" placeholder="Asking" required/>
+                </p>              
               </p>
               <p>
                   <label htmlFor="category">Category</label>

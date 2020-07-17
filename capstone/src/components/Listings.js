@@ -64,7 +64,7 @@ return (
     <main className="main-listings">
         <div className="left-col">
             <p>
-                <Link to={"/"}><button>Home</button></Link>
+                <button onClick={this.fetchPosts}>Home</button>
             </p>
             <p>
                 <button onClick={this.updatePostsListElectronics} value="Electronics">Electronics</button>

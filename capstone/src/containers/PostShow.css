@@ -8,7 +8,7 @@ img {
 .row-info {
     justify-content: space-between;
     display: flex;
-    margin-top: 25px;
+    margin-top: 5px;
 }
 
 .item-info {
@@ -40,6 +40,7 @@ img {
 .title-post-show {
     text-align: left;
     margin-left:25px; 
+    margin-bottom: 5px;
 }
 
 

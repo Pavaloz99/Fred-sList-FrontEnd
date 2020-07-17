@@ -40,8 +40,10 @@ class UserDetails extends Component {
             <>
             {   this.state.user ?
                 <>
+                <main className="main-listings main-listings-fix">
                 <UserDetailMain bufferToBase64={this.arrayBufferToBase64} currentUser={this.state.user} />
                 <CurrentUserList currentUser={this.state.user} bufferToBase64={this.arrayBufferToBase64} />
+                </main>
                 </>
                 :
                 "Loading"
