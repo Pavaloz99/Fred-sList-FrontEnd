@@ -30,7 +30,11 @@ img {
 }
 
 .main-post-show {
-    margin-top: 40px;
+    height: calc(100vh - 40px);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
 }
 
 .title-post-show {
@@ -38,7 +42,4 @@ img {
     margin-left:25px; 
 }
 
-.ReactModal__Content {
-    background-color: blue;
-}
 

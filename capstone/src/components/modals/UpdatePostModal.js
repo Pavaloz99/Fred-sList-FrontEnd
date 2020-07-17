@@ -124,19 +124,19 @@ class UpdatePostModal extends Component {
           <form>
               <p>
                   <label htmlFor="title">Title</label>
-                <input onKeyUp={this.onTitleInput} type="text" name="title" placeholder="Title" value="Hi" required />
+                <input onKeyUp={this.onTitleInput} type="text" name="title" placeholder="Title" value={this.props.post.title} required />
               </p>
               <p>
                     <label htmlFor="description">Description</label>
-                <textarea onKeyUp={this.onDescriptionInput} name="description" placeholder="Description" value="Hi" required/>
+                <textarea onKeyUp={this.onDescriptionInput} name="description" placeholder="Description" value={this.props.post.description} required/>
               </p>
               <p>
                   <label htmlFor="condition">Condition</label>
-                <input onKeyUp={this.onConditionInput} type="text" name="condition" placeholder="Condition" value="Hi" required/>
+                <input onKeyUp={this.onConditionInput} type="text" name="condition" placeholder="Condition" value={this.props.post.condition} required/>
               </p>
               <p>
                   <label htmlFor="asking">Asking</label>
-                <input onKeyUp={this.onAskingInput} type="text" name="asking" placeholder="Asking" value="Hi" required/>
+                <input onKeyUp={this.onAskingInput} type="text" name="asking" placeholder="Asking" value={this.props.post.asking} required/>
               </p>
               <p>
                   <label htmlFor="category">Category</label>

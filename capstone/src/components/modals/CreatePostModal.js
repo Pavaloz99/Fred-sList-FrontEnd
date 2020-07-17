@@ -16,8 +16,14 @@ const customStyles = {
       bottom                : 'auto',
       marginRight           : '-50%',
       transform             : 'translate(-50%, -50%)',
-      backgroundColor       : 'blue',
+      backgroundColor       : '#5b5656',
+      color                 : '#f5eaea',
+      display               : "block",
     },
+    overlay: {
+      backgroundColor       : "rgba(0, 0, 0, 0.75)",
+      zIndex                : "101"
+    }
     
   };
 
@@ -132,7 +138,9 @@ class CreatePostModal extends Component {
               </p>
               <p>
                     <label htmlFor="description">Description</label>
+                    <p>
                 <textarea onKeyUp={this.onDescriptionInput} name="description" placeholder="Description" required/>
+             </p>
               </p>
               <p>
                   <label htmlFor="condition">Condition</label>
@@ -144,6 +152,7 @@ class CreatePostModal extends Component {
               </p>
               <p>
                   <label htmlFor="category">Category</label>
+                  <p>
                 <select onChange={this.onCategoryInput} name="category">
                   <option value="">-- Select Category --</option>
                   <option value="Electronics">Electronics</option>
@@ -155,10 +164,13 @@ class CreatePostModal extends Component {
                   <option value="Handmade">Handmade</option>
                   <option value="Sports">Sports</option>
                 </select>
+                </p>
               </p>
               <p>
                   <label htmlFor="image">Image</label>
+                  <p>
                 <input onChange={this.onImageInput} type="file" name="image" placeholder="Image" required/>
+                </p>
               </p>
               <p>
                 <input onClick={this.handleSubmit} type="submit" value="Post"/>

@@ -1,13 +1,16 @@
+
+
 .list-container {
     border-left: 1px solid #f5eaea;
     border-right: 1px solid #f5eaea;
-    width: 1050px;
+    min-width: 1050px;
     margin: 0 auto;
     overflow-y: scroll;
     overflow-x: hidden;
     height: 100%;
     bottom: 0;
     position: relative;
+    box-shadow: 0px 12px 12px rgba(0, 0, 0, 0.75);
 }
 
 button {
@@ -40,12 +43,17 @@ button:hover {
 
 .right-col {
     margin: 0 auto;
-    width: 150px
+    min-width: 150px
 }
 
 .left-col {
     margin: 0 auto;
-    width: 150px;
+    min-width: 250px;
+}
+
+.right-col {
+    margin: 0 auto;
+    width: 250px;
 }
 
 .list-container hr {
@@ -58,10 +66,3 @@ button:hover {
     display: inline;
 }
 
-.vertical-bar {
-    width: 1px;
-    height: 10px;
-    margin: 0;
-    border: 0;
-    display: inline; 
-}

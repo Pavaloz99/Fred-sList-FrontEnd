@@ -91,7 +91,10 @@ return (
                 <button onClick={this.updatePostsList} value="Sports">Sports</button>
             </p>
          </div>
-    <div className="list-container">{this.generateLists(this.state.allPosts)}</div><div className="right-col"><CreatePostModal fetchPosts={this.fetchPosts}/></div></main> 
+    <div className="list-container">{this.generateLists(this.state.allPosts)}</div><div className="right-col">
+        <p>
+            <CreatePostModal fetchPosts={this.fetchPosts}/>
+        </p></div></main> 
  </>
 );
 }

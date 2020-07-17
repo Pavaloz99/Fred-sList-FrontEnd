@@ -1,3 +1,9 @@
-.Modal {
-    background-color: hotpink;
+.create{
+    background-color: #7fcd91;
+    color: #f5eaea;
+    transition: 0.3s linear ;
+}
+
+.create:hover {
+    background-color: rgb(106, 185, 125);
 }

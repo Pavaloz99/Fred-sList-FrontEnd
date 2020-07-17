@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+
+* {
+  font-family: 'Mulish', sans-serif;
+}
+
 .App {
   text-align: center;
 }
 
 main {
   background-color: #4d4646;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .App-logo {

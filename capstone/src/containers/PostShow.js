@@ -148,7 +148,7 @@ class PostShow extends Component {
         }
 
     return( // split this return into two components maybe three
-            <main className="main-post-show">{this.state.post && this.props.currentUser ? 
+            <main className="main-post-show">{this.state.post && this.state.currentUser ? 
              <>
             <h1 className="title-post-show">{this.state.post.title}</h1>
             <div className="row-info">
@@ -177,7 +177,7 @@ class PostShow extends Component {
                 <h3>Followers: {" " + this.state.post.User.Followers.length}</h3>
                 {this.props.currentUser && (this.props.currentUser._id.toString() === this.state.post.User._id.toString()) ?
                 <>
-                <UpdatePostModal postId={this.state.post._id}/></> :
+                <UpdatePostModal postId={this.state.post._id} post={this.state.post} /></> :
                 
                 <>
                 <i className="fa fa-thumbs-o-up" style={this.state.currentUser.hasLiked.includes(this.state.post.User._id.toString()) ? iconStylesPos : iconStyles} onClick={this.handleSubmitPositive}></i>
