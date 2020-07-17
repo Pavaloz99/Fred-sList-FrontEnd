@@ -6,15 +6,23 @@ import UserModel from '../../models/User';
 
 
 const customStyles = {
-    content : {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      transform             : 'translate(-50%, -50%)'
-    }
-  };
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)',
+    backgroundColor       : '#5b5656',
+    color                 : '#f5eaea',
+    display               : "block",
+  },
+  overlay: {
+    backgroundColor       : "rgba(0, 0, 0, 0.75)",
+    zIndex                : "101"
+  }
+  
+};
 
 
 

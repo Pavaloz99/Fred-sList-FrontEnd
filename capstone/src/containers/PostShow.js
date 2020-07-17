@@ -154,20 +154,26 @@ class PostShow extends Component {
             <div className="row-info">
                     <img src={"data:image/jpeg;base64," + this.arrayBufferToBase64(this.state.post.image.data)} alt="something"></img>
                 <div className="item-info">
-                    <h2>Description:</h2>
-                    <p>{" " + this.state.post.description}</p>
-                    <h2>Asking:</h2>
-                    <p>{" " + this.state.post.asking}</p>
-                    <h2>Condition:</h2>
+                    <h2 className="description">Description:<span>{" " + this.state.post.description}</span></h2>
+                    <div className="bottom-content">
+                    <div>
+                        <h2>Asking:</h2>
+                        <p>{" " + this.state.post.asking}</p>
+                    </div>
+                        <div>
+                        <h2>Condition:</h2>
                     <p>{" " + this.state.post.condition}</p>
+                    </div>                   
                     { this.props.currentUser && this.props.currentUser._id.toString() === this.state.post.User._id.toString() ?
-                    <DeleteConfModal handleDelete={this.handleDelete} id={this.props.match.params.id} /> :
-                    <button>Message The Seller</button>
+                    <DeleteConfModal className="delete-btn" handleDelete={this.handleDelete} id={this.props.match.params.id} /> :
+                    <button className="message-seller">Message The Seller</button>
                     } 
+                    </div>
                     </div> 
             </div>
             <div className="row-user-more">
                 <div className="user">
+                <h1>About The Seller</h1>
                 <h3>Username: {" " + this.state.post.User.username}</h3>
                 <h3>Rating: {this.state.post.User.Rating.length ? 
                         Math.round((this.state.post.User.Rating.reduce((accumulator, currentValue) => 
@@ -182,7 +188,7 @@ class PostShow extends Component {
                 <>
                 <i className="fa fa-thumbs-o-up" style={this.state.currentUser.hasLiked.includes(this.state.post.User._id.toString()) ? iconStylesPos : iconStyles} onClick={this.handleSubmitPositive}></i>
                 <i className="fa fa-thumbs-o-down" style={this.state.currentUser.hasDisliked.includes(this.state.post.User._id.toString()) ? iconStylesNeg : iconStyles} onClick={this.handleSubmitNegative}></i>
-                <button onClick={this.handleSubmitFollow}>Follow</button>
+                <button className="follow" onClick={this.handleSubmitFollow}>Follow</button>
                 </>
                 }
                 </div>
@@ -191,7 +197,7 @@ class PostShow extends Component {
                 </div>
             </div>
             </> :
-             "Loading..."}
+             <h1 className="auth-error">Please Sign In To view Post</h1>}
             </main>
     );
     }

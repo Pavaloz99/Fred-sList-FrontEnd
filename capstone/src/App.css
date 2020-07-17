@@ -4,6 +4,10 @@
   font-family: 'Mulish', sans-serif;
 }
 
+html {
+  background-color: #4d4646;
+}
+
 .App {
   text-align: center;
 }

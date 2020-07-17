@@ -6,15 +6,23 @@ import PostModel from '../../models/Posts';
 
 
 const customStyles = {
-    content : {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      transform             : 'translate(-50%, -50%)'
-    }
-  };
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)',
+    backgroundColor       : '#5b5656',
+    color                 : '#f5eaea',
+    display               : "block",
+  },
+  overlay: {
+    backgroundColor       : "rgba(0, 0, 0, 0.75)",
+    zIndex                : "101"
+  }
+  
+};
 
 
 
@@ -52,7 +60,7 @@ class DeleteConfModal extends Component {
       
         return(
             <>
-        <button onClick={this.openModal}>Delete Post</button>
+        <button className="delete-btn" onClick={this.openModal}>Delete Post</button>
         <Modal
           isOpen={this.state.show}
           onRequestClose={this.closeModal}
