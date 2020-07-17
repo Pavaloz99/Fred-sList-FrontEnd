@@ -74,7 +74,7 @@ class Splash extends Component {
             auth: false,
             user: null 
         });
-        window.location.href = '/'
+        window.location.href = '/listings'
     }
 render() {
         return(
