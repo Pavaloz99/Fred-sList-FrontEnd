@@ -12,7 +12,7 @@ const UserDetailMain = (props) => {
             <div className="stats">
                 <div className="data-container">
                 <span>Total Listing</span>
-                <p className="stats-num">Soon</p>
+                <p className="stats-num">...</p>
                 </div>
                 <div className="data-container">
                 <span>Active Listings</span>    

@@ -135,23 +135,33 @@ class UpdatePostModal extends Component {
           <form>
               <p>
                   <label htmlFor="title">Title</label>
-                <input onKeyUp={this.onTitleInput} type="text" name="title" placeholder="Title" value={this.props.post.title} required />
+                <input onKeyUp={this.onTitleInput} type="text" name="title" placeholder="Title" defaultValue={this.props.post.title} required />
               </p>
               <p>
                     <label htmlFor="description">Description</label>
-                <textarea onKeyUp={this.onDescriptionInput} name="description" placeholder="Description" value={this.props.post.description} rows="10" cols="10" required/>
+                <textarea onChange={this.onDescriptionInput} name="description" placeholder="Description" defaultValue={this.props.post.description} rows="10" cols="10" required/>
               </p>
               <p>
                   <label htmlFor="condition">Condition</label>
-                <input onKeyUp={this.onConditionInput} type="text" name="condition" placeholder="Condition" value={this.props.post.condition} required/>
+                <input onKeyUp={this.onConditionInput} type="text" name="condition" placeholder="Condition" defaultValue={this.props.post.condition} required/>
               </p>
               <p>
                   <label htmlFor="asking">Asking</label>
-                <input onKeyUp={this.onAskingInput} type="text" name="asking" placeholder="Asking" value={this.props.post.asking} required/>
+                <input onKeyUp={this.onAskingInput} type="text" name="asking" placeholder="Asking" defaultValue={this.props.post.asking} required/>
               </p>
               <p>
                   <label htmlFor="category">Category</label>
-                <input onKeyUp={this.onCategoryInput} type="text" name="category" placeholder="Category" value="Hi" required/>
+                <select defaultValue={this.props.post.category} onChange={this.onCategoryInput} name="category">
+                    <option value="">-- Select Category --</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Home And Bath">Home And Bath</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Pet Supplies">Pet Supplies</option>
+                    <option value="Beauty And Health">Beauty And Health</option>
+                    <option value="Toys">Toys</option>
+                    <option value="Handmade">Handmade</option>
+                    <option value="Sports">Sports</option>
+                </select>
               </p>
               <p>
                   <label htmlFor="image">New Image</label>

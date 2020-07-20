@@ -21,7 +21,7 @@ class Listings extends Component {
         PostModel.fetch().then(res => {
             console.log(res);
             this.setState({
-                allPosts: res.data.posts
+                allPosts: res.posts
             });
         }).catch(err => {
             console.log(err);
@@ -37,6 +37,17 @@ class Listings extends Component {
     updatePostsListElectronics = (e) => {
         console.log(e.target.value)
         PostModel.fetchByCategoryElectronics().then(res => {
+            console.log(res)
+            this.setState({
+                allPosts: res.post
+            })
+            }).catch(err => {
+                console.log(err);
+        });
+    }
+    updatePostsListClothing = (e) => {
+        console.log(e.target.value)
+        PostModel.fetchByCategoryClothing().then(res => {
             console.log(res)
             this.setState({
                 allPosts: res.post
@@ -73,7 +84,7 @@ return (
                 <button onClick={this.updatePostsList} value="Home And Bath">Home And Bath</button>
             </p>
             <p>
-                <button onClick={this.updatePostsList} value="Clothing">Clothing</button>
+                <button onClick={this.updatePostsListClothing} value="Clothing">Clothing</button>
             </p>
             <p>
                 <button onClick={this.updatePostsList} value="Pet Supplies">Pet Supplies</button>
@@ -91,7 +102,7 @@ return (
                 <button onClick={this.updatePostsList} value="Sports">Sports</button>
             </p>
          </div>
-    <div className="list-container">{this.generateLists(this.state.allPosts)}</div><div className="right-col">
+    <div className="list-container">{this.state.allPosts ? this.generateLists(this.state.allPosts): "..."}</div><div className="right-col">
         <p>
             <CreatePostModal fetchPosts={this.fetchPosts}/>
         </p></div></main> 

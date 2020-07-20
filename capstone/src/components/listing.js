@@ -12,7 +12,7 @@ function Listing(props) {
              
                     <div className="post-info">
                         <div className="item-info-2">
-                            <h1>Title: {props.name}</h1>
+                            <h1>{props.name}</h1>
                             <h2>Condition: {props.condition}</h2>
                             <h2>Asking: {props.price}</h2>
                         </div>

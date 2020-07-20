@@ -32,7 +32,7 @@ class UserModel {
             method: "GET",
         }).then(res => {
             return res.json()
-        })
+        });
     }
     static logout = () => {
         //let request = axios.delete('http://localhost:3001/api/v1/auth/logout', {withCredentials: true})
