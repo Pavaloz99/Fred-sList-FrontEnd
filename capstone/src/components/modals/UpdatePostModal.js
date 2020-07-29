@@ -46,6 +46,16 @@ class UpdatePostModal extends Component {
         category: "",
         image: null,
     }
+
+    componentDidMount = () => {
+        this.setState({
+            title: this.props.post.title,
+            description: this.props.post.description,
+            condition: this.props.post.condition,
+            asking: this.props.post.asking,
+            category: this.props.post.category
+        });
+    }
     
 
     send = event => {

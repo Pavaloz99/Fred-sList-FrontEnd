@@ -13,6 +13,7 @@ img {
 
 .item-info {
     min-width: 1100px;
+    max-width: 1100px;
     height: 500px;
     background-color: #5b5656;
     color: #f5eaea;
