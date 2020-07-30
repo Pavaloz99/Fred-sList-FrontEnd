@@ -1,9 +1,12 @@
 import axios from 'axios';
 
+const API_ENDPOINT = "https://afternoon-reef-89142.herokuapp.com/api/v1/"
+
+
 class UserModel {
     static register = (userInfo) => {
         //axios.post('http://localhost:3001/api/v1/auth/register', userInfo)
-        return fetch('http://localhost:3001/api/v1/auth/register', {
+        return fetch(API_ENDPOINT + 'auth/register', {
             credentials: "include",
             method: "POST",
             headers: {'Content-Type':'application/json'},
@@ -15,7 +18,7 @@ class UserModel {
 
     static login = (loginInfo) => {
        // axios.post('http://localhost:3001/api/v1/auth/login', loginInfo, {withCredentials: true})
-        return fetch('http://localhost:3001/api/v1/auth/login', {
+        return fetch(API_ENDPOINT + 'auth/login', {
             credentials: "include",
             method: "POST",
             headers: {'Content-Type':'application/json'},
@@ -27,7 +30,7 @@ class UserModel {
 
     static fetch =  () => {
         //let account = axios.get('http://localhost:3001/api/v1/auth', {withCredentials: true})
-        return fetch("http://localhost:3001/api/v1/auth", {
+        return fetch(API_ENDPOINT + "auth", {
             credentials: "include",
             method: "GET",
         }).then(res => {
@@ -36,7 +39,7 @@ class UserModel {
     }
     static logout = () => {
         //let request = axios.delete('http://localhost:3001/api/v1/auth/logout', {withCredentials: true})
-        return fetch("http://localhost:3001/api/v1/auth/logout", {
+        return fetch(API_ENDPOINT + "auth/logout", {
             credentials: "include",
             method: "DELETE"
         }).then(res => {
@@ -47,7 +50,7 @@ class UserModel {
 
     static addLike = (id) => {
         //return axios.post("http://localhost:3001/api/v1/auth/" + id + "/like", {withCredentials: true})
-        return fetch("http://localhost:3001/api/v1/auth/" + id + "/like", {
+        return fetch(API_ENDPOINT + "auth/" + id + "/like", {
             credentials: "include",
             method: "POST",
         }).then(res => {
@@ -56,7 +59,7 @@ class UserModel {
     }
     static addDislike = (id) => {
         //let account = axios.post("http://localhost:3001/api/v1/auth/" + id + "/dislike", {withCredentials: true})
-        return fetch("http://localhost:3001/api/v1/auth/" + id + "/dislike", {
+        return fetch(API_ENDPOINT + "auth/" + id + "/dislike", {
             credentials: "include",
             method: "POST"
         }).then(res => {
@@ -65,7 +68,7 @@ class UserModel {
     }
 
     static follow = (id) => {
-        return fetch("http://localhost:3001/api/v1/auth/" + id + "/follow", {
+        return fetch(API_ENDPOINT + "auth/" + id + "/follow", {
             credentials: "include",
             method: "POST"
         }).then(res => {
@@ -73,7 +76,7 @@ class UserModel {
         });
     }
     static fetchSingle = (id) => {
-        return fetch("http://localhost:3001/api/v1/auth/" + id + "/anyAccount", {
+        return fetch(API_ENDPOINT + "auth/" + id + "/anyAccount", {
             credentials: "include",
             method: "GET"
         }).then(res => {

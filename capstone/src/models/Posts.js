@@ -1,9 +1,11 @@
 import axios from 'axios';
 
+const API_ENDPOINT = "https://afternoon-reef-89142.herokuapp.com/api/v1/"
+
 class PostModel {
     static fetch = () => {
         //let posts = axios.get('http://localhost:3001/api/v1/posts', {withCredentials: true});
-        return fetch("http://localhost:3001/api/v1/posts", {
+        return fetch(API_ENDPOINT + "posts", {
             credentials: "include",
             method: "GET"
         }).then(res => {
@@ -13,7 +15,7 @@ class PostModel {
 
     static fetchOne = (id) => {
         //let post = axios.get("http://localhost:3001/api/v1/posts/" + id, {withCredentials: true});
-        return fetch("http://localhost:3001/api/v1/posts/" + id, {
+        return fetch(API_ENDPOINT + "posts/" + id, {
             credentials: "include",
             method: "GET"
         }).then(res => {
@@ -22,7 +24,7 @@ class PostModel {
     }
 
     static create = (data) => {
-        let post = axios.post("http://localhost:3001/api/v1/posts", data, {withCredentials: true});
+        let post = axios.post(API_ENDPOINT + "posts", data, {withCredentials: true});
         // return fetch("http://localhost:3001/api/v1/posts", {
         //     credentials: "include",
         //     method: "POST",
@@ -38,7 +40,7 @@ class PostModel {
 
     static drop = (id) => {
         //let deletedPost = axios.delete("http://localhost:3001/api/v1/posts/" + id + "/delete", {withCredentials: true});
-        return fetch("http://localhost:3001/api/v1/posts/" + id + "/delete", {
+        return fetch(API_ENDPOINT + "posts/" + id + "/delete", {
             credentials: "include",
             method: "DELETE"
         }).then(res => {
@@ -47,7 +49,7 @@ class PostModel {
     }
 
     static fetchByCategoryElectronics = () => {
-        return fetch("http://localhost:3001/api/v1/posts/category/electronics", {
+        return fetch(API_ENDPOINT + "posts/category/electronics", {
             credentials: "include",
             method: "GET",
         }).then(res => {
@@ -55,7 +57,7 @@ class PostModel {
         });
     }
     static fetchByCategoryHomeAndBath = () => {
-        return fetch("http://localhost:3001/api/v1/posts/category/homeandbath", {
+        return fetch(API_ENDPOINT + "posts/category/homeandbath", {
             credentials: "include",
             method: "GET",
         }).then(res => {
@@ -63,7 +65,7 @@ class PostModel {
         });
     }
     static fetchByCategoryToys = () => {
-        return fetch("http://localhost:3001/api/v1/posts/category/toys", {
+        return fetch(API_ENDPOINT + "posts/category/toys", {
             credentials: "include",
             method: "GET",
         }).then(res => {
@@ -71,7 +73,7 @@ class PostModel {
         });
     }
     static fetchByCategoryClothing = () => {
-        return fetch("http://localhost:3001/api/v1/posts/category/clothing", {
+        return fetch(API_ENDPOINT + "posts/category/clothing", {
             credentials: "include",
             method: "GET",
         }).then(res => {
@@ -79,7 +81,7 @@ class PostModel {
         });
     }
     static fetchByCategoryBeautyAndHealth = () => {
-        return fetch("http://localhost:3001/api/v1/posts/category/beautyandhealth", {
+        return fetch(API_ENDPOINT + "posts/category/beautyandhealth", {
             credentials: "include",
             method: "GET",
         }).then(res => {
@@ -87,7 +89,7 @@ class PostModel {
         });
     }
     static fetchByCategoryPetSupplies = () => {
-        return fetch("http://localhost:3001/api/v1/posts/category/petsupplies", {
+        return fetch(API_ENDPOINT + "posts/category/petsupplies", {
             credentials: "include",
             method: "GET",
         }).then(res => {
@@ -96,7 +98,7 @@ class PostModel {
     }
 
     static fetchByCategorySports = () => {
-        return fetch("http://localhost:3001/api/v1/posts/category/sports", {
+        return fetch(API_ENDPOINT + "posts/category/sports", {
             credentials: "include",
             method: "GET",
         }).then(res => {
@@ -105,7 +107,7 @@ class PostModel {
     }
 
     static fetchByCategoryHandmade = () => {
-        return fetch("http://localhost:3001/api/v1/posts/category/handmade", {
+        return fetch(API_ENDPOINT + "posts/category/handmade", {
             credentials: "include",
             method: "GET",
         }).then(res => {
@@ -114,7 +116,7 @@ class PostModel {
     }
 
     static update = (id, data) => {
-        return fetch("http://localhost:3001/api/v1/posts/" + id, {
+        return fetch(API_ENDPOINT + "posts/" + id, {
             credentials: "include",
             method: "PUT",
             body: data  
