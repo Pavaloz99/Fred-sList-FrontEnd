@@ -149,7 +149,7 @@ class UpdatePostModal extends Component {
               </p>
               <p>
                     <label htmlFor="description">Description</label>
-                <textarea onChange={this.onDescriptionInput} name="description" placeholder="Description" defaultValue={this.props.post.description} rows="10" cols="10" required/>
+                <textarea onChange={this.onDescriptionInput} name="description" placeholder="Description" defaultValue={this.props.post.description} rows="6" cols="50" required/>
               </p>
               <p>
                   <label htmlFor="condition">Condition</label>

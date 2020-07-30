@@ -7,3 +7,7 @@
 .create:hover {
     background-color: rgb(106, 185, 125);
 }
+
+textarea {
+    resize: none;
+}
